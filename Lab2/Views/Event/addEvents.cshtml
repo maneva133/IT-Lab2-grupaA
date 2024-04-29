@@ -1,0 +1,8 @@
+﻿@model Lab2.Models.EventModel
+
+
+<form asp-action="addEvents" method="post">
+    <div> Enter name: <input asp-for="Name" name="Name" type="text" value=@Model.Name /> </div>
+    <div> Enter location: <input asp-for="Location" name="Location" type="text" value=@Model.Location /> </div>
+    <button type="submit">Submit</button>
+</form>

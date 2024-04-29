@@ -1,0 +1,35 @@
+﻿@model List<Lab2.Models.EventModel>
+@{
+    ViewBag.Title = "tableEvents";
+}
+
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Ime</th>
+        <th>Lokacija</th>
+        <th></th> 
+        <th></th>
+    </tr>
+    @foreach (var eventItem in Model)
+    {
+        <tr>
+            <td>@eventItem.Id</td>
+            <td>@eventItem.Name</td>
+            <td>@eventItem.Location</td>
+            <td>
+                <!-- Edit button -->
+                <a href="@Url.Action("UpdateEvent", "Event", new { id = eventItem.Id })">Edit</a>
+            </td>
+            <td>
+                <!-- Delete button -->
+                <form action="@Url.Action("DeleteEvent", "Event")" method="post">
+                    @Html.Hidden("eventId", eventItem.Id)
+                    <button type="submit">Delete</button>
+                </form>
+
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,27 @@
+﻿@model Lab2.Models.EventModel
+
+@{
+    ViewBag.Title = "Update Event";
+}
+
+<h2>Update Event</h2>
+
+<form action="@Url.Action("UpdateEvent", "Event")" method="post">
+    {
+    @Html.HiddenFor(model => model.Id) <!-- Зачувај го Id, но не го прикажувај како поле за внес -->
+
+    <div class="form-group">
+        <label for="Name">Name:</label>
+        <input type="text" id="Name" name="Name" value="@Model.Name" class="form-control" />
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.Name)</span>
+    </div>
+
+    <div class="form-group">
+        <label for="Location">Location:</label>
+        <input type="text" id="Location" name="Location" value="@Model.Location" class="form-control" />
+        <span class="text-danger">@Html.ValidationMessageFor(model => model.Location)</span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    }
+    </form>
